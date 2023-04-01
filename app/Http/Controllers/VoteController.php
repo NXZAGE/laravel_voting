@@ -9,7 +9,7 @@ class VoteController extends Controller
 {
     public function showAllVotes()
     {
-        $votes = Vote::all();
+        $votes = Vote::orderByDesc('id')->paginate(5);
         $context = ['votes' => $votes];
         return view('index', $context);
     }
@@ -30,7 +30,7 @@ class VoteController extends Controller
     {
         $vote = Vote::find($id);
         $context = ['vote' => $vote];
-        return view('show_vote', $context); 
+        return view('show_vote', $context);
     }
 
     public function increasePositive($id)

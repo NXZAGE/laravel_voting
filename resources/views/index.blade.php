@@ -41,7 +41,7 @@
 					<!-- НАЧАЛО: Шапка карточки -->
 					<div class="card-header border-info">
 						<h5 class="card-title mb-0">
-							<a href="#">
+							<a href="/vote/show/{{$vote->id}}">
 								{{$vote->title}}
 							</a>
 						</h5>
@@ -68,10 +68,12 @@
 						</a>
 					</div>
 					<!-- КОНЕЦ: Тело карточки -->
-				@endforeach
 			</div>
+			@endforeach
 			<!-- КОНЕЦ: Карточка голосования -------------------------------------->
-
+			<div class="text-center">
+			{{$votes->onEachSide(1)->links()}}
+			</div>
 		</div>
 	</main>
 	<!-- КОНЕЦ: Основное содержимое страницы -->
